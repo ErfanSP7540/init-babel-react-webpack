@@ -1,24 +1,27 @@
-class SubCom extends React.Component{
-    render(){
-        return(
-            <p>
-                title={this.props.title}
-            </p>
-        )
+class Com extends React.Component{
+    constructor(props){
+        super(props);
+        this.click = this.click.bind(this)
     }
-}
-class SupCom extends React.Component{
+    
+    getName(){
+        return this.props.name;
+    }
+
+    click(){
+        console.log(this.props.name);
+    }
+
     render(){
-        return(
-            <div>
-                <SubCom title={'first'}/>
-                <SubCom title={'second'}/>
-                <SubCom title={'third'}/>
+        return (
+            <div> name: {  this.getName() }
+            <button onClick={this.click.bind(this)}>Clickme</button>
             </div>
         )
     }
+    
 }
 
 let appRoot = document.getElementById('app')
-ReactDOM.render (<SupCom />,appRoot)
+ReactDOM.render (<Com name={'erfan'}/>,appRoot)
 

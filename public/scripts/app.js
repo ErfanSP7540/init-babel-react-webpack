@@ -8,54 +8,47 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var SubCom = function (_React$Component) {
-    _inherits(SubCom, _React$Component);
+var Com = function (_React$Component) {
+    _inherits(Com, _React$Component);
 
-    function SubCom() {
-        _classCallCheck(this, SubCom);
+    function Com(props) {
+        _classCallCheck(this, Com);
 
-        return _possibleConstructorReturn(this, (SubCom.__proto__ || Object.getPrototypeOf(SubCom)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Com.__proto__ || Object.getPrototypeOf(Com)).call(this, props));
+
+        _this.click = _this.click.bind(_this);
+        return _this;
     }
 
-    _createClass(SubCom, [{
-        key: 'render',
-        value: function render() {
-            return React.createElement(
-                'p',
-                null,
-                'title=',
-                this.props.title
-            );
+    _createClass(Com, [{
+        key: 'getName',
+        value: function getName() {
+            return this.props.name;
         }
-    }]);
-
-    return SubCom;
-}(React.Component);
-
-var SupCom = function (_React$Component2) {
-    _inherits(SupCom, _React$Component2);
-
-    function SupCom() {
-        _classCallCheck(this, SupCom);
-
-        return _possibleConstructorReturn(this, (SupCom.__proto__ || Object.getPrototypeOf(SupCom)).apply(this, arguments));
-    }
-
-    _createClass(SupCom, [{
+    }, {
+        key: 'click',
+        value: function click() {
+            console.log(this.props.name);
+        }
+    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
                 'div',
                 null,
-                React.createElement(SubCom, { title: 'first' }),
-                React.createElement(SubCom, { title: 'second' }),
-                React.createElement(SubCom, { title: 'third' })
+                ' name: ',
+                this.getName(),
+                React.createElement(
+                    'button',
+                    { onClick: this.click.bind(this) },
+                    'Clickme'
+                )
             );
         }
     }]);
 
-    return SupCom;
+    return Com;
 }(React.Component);
 
 var appRoot = document.getElementById('app');
-ReactDOM.render(React.createElement(SupCom, null), appRoot);
+ReactDOM.render(React.createElement(Com, { name: 'erfan' }), appRoot);
