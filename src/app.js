@@ -1,22 +1,24 @@
-let count = 0
-
-let clicked = ()=>{
-    count++;
-    console.log('ksdskk');
-    reRender()
+class SubCom extends React.Component{
+    render(){
+        return(
+            <p>
+                title={this.props.title}
+            </p>
+        )
+    }
+}
+class SupCom extends React.Component{
+    render(){
+        return(
+            <div>
+                <SubCom title={'first'}/>
+                <SubCom title={'second'}/>
+                <SubCom title={'third'}/>
+            </div>
+        )
+    }
 }
 
-let reRender =()=>{
-    
-    let template  = 
-        <div> 
-            <div>This is a </div>
-            <p>count {count}</p>
-            <button onClick={clicked}>ClickMe</button>
-        </div>
-    
-    
-    let appRoot   =   document.getElementById('app')
-    ReactDOM.render (template,appRoot)
-}
-reRender()
+let appRoot = document.getElementById('app')
+ReactDOM.render (<SupCom />,appRoot)
+
