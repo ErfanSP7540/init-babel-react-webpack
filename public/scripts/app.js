@@ -1,42 +1,37 @@
 'use strict';
 
-var user = 'Erfan';
-var userAge = 80;
+var count = 0;
 
-var getAge = function getAge(userAge_) {
-    return userAge_;
+var clicked = function clicked() {
+    count++;
+    console.log('ksdskk');
+    reRender();
 };
 
-var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'p',
-        null,
-        'This is a test paragraph'
-    ),
-    React.createElement(
-        'div',
-        null,
-        getAge(userAge)
-    ),
-    React.createElement(
-        'div',
-        null,
-        userAge > 19 ? React.createElement(
-            'b',
-            null,
-            'big'
-        ) : 'small'
-    ),
-    React.createElement('div', null),
-    React.createElement(
-        'div',
-        null,
-        ' blue color ',
-        user.toUpperCase()
-    )
-);
+var reRender = function reRender() {
 
-var appRoot = document.getElementById('app');
-ReactDOM.render(template, appRoot);
+    var template = React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'div',
+            null,
+            'This is a '
+        ),
+        React.createElement(
+            'p',
+            null,
+            'count ',
+            count
+        ),
+        React.createElement(
+            'button',
+            { onClick: clicked },
+            'ClickMe'
+        )
+    );
+
+    var appRoot = document.getElementById('app');
+    ReactDOM.render(template, appRoot);
+};
+reRender();
