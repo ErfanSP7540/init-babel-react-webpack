@@ -34,11 +34,15 @@
 
 10>> 'Create File >> "src/app.js"
         "
-            document.getElementById('app').innerHTML='app'
+            
+            var template  = <p> This is jsx from app.js </p>
+            var appRoot   =   document.getElementById('app')
+
+            ReactDOM.render (template,appRoot)
         "
 11>> (TERMINAL) npx babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
 
-10>> (TERMINAL) git clone https://github.com/tapio/live-server.git
+12>> (TERMINAL) git clone https://github.com/tapio/live-server.git
                 cd live-server
                 sudo npm install -g
                 live-server -v
