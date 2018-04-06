@@ -2,6 +2,10 @@ class Com extends React.Component{
     constructor(props){
         super(props);
         this.click = this.click.bind(this)
+        this.state = {
+            count:0,
+            name:props.name
+        }
     }
     
     getName(){
@@ -9,12 +13,17 @@ class Com extends React.Component{
     }
 
     click(){
-        console.log(this.props.name);
+        this.setState( preState=>{
+            return { count:preState.count+1}
+        } )
+
+
+        //this.setState({ count:100 })
     }
 
     render(){
         return (
-            <div> name: {  this.getName() }
+            <div> {this.state.name}: {  this.state.count }
             <button onClick={this.click.bind(this)}>Clickme</button>
             </div>
         )

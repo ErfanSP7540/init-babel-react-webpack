@@ -17,6 +17,10 @@ var Com = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Com.__proto__ || Object.getPrototypeOf(Com)).call(this, props));
 
         _this.click = _this.click.bind(_this);
+        _this.state = {
+            count: 0,
+            name: props.name
+        };
         return _this;
     }
 
@@ -28,7 +32,11 @@ var Com = function (_React$Component) {
     }, {
         key: 'click',
         value: function click() {
-            console.log(this.props.name);
+            this.setState(function (preState) {
+                return { count: preState.count + 1 };
+            });
+
+            //this.setState({ count:100 })
         }
     }, {
         key: 'render',
@@ -36,8 +44,10 @@ var Com = function (_React$Component) {
             return React.createElement(
                 'div',
                 null,
-                ' name: ',
-                this.getName(),
+                ' ',
+                this.state.name,
+                ': ',
+                this.state.count,
                 React.createElement(
                     'button',
                     { onClick: this.click.bind(this) },
