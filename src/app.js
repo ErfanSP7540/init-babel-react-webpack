@@ -1,10 +1,26 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
 
-import '../node_modules/normalize.css/normalize.css'
-import './styles/style_less.less'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-let template  = <p> This idfdfwerwer jsx from app.js e rfan  </p>
-let appRoot   =   document.getElementById('app')
+const Home = () => <h1>
+                        <Link to="/about"> Click About</Link>
+                        <Link to="/footer">Click Footer</Link>
+                        <Link to="/asasd">Click NotFound</Link>
+                    </h1>
+const About = ()    => <h1>About Us</h1>
+const Footer = ()   => <h1>Footer</h1>
+const NotFound = () => <h1>NotFound</h1>
 
-ReactDOM.render (template,appRoot) 
+const App = () => (
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/footer" component={Footer} />
+      <Route  component={NotFound} />
+    </Switch>
+  </Router>
+)
+
+ReactDOM.render (<App />,document.getElementById('app')) 
