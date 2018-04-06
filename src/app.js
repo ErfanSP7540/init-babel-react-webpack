@@ -1,7 +1,9 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
 
-let template  = <p> This is jsx from app.js </p>
+import './styles/style_css.css'
+
+let template  = <p> This idfdfwerwer jsx from app.js erfan  </p>
 let appRoot   =   document.getElementById('app')
 
 ReactDOM.render (template,appRoot) 
