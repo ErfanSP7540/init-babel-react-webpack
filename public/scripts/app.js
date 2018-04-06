@@ -9,4 +9,4 @@ var Com = function Com(props) {
 };
 
 var appRoot = document.getElementById('app');
-ReactDOM.render(React.createElement(Com, { name: 'erfan' }), appRoot);
+ReactDOM.render(React.createElement(Com, { name: 'ekjjhjhchchghcfcfan' }), appRoot);

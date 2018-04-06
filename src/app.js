@@ -1,12 +1,7 @@
-var Com = (props)=>{
-    return(
-        <div>
-            {props.name}
-        </div>
-    )
-}
+import ReactDOM from 'react-dom'
+import React from 'react'
 
+let template  = <p> This is jsx from app.js </p>
+let appRoot   =   document.getElementById('app')
 
-let appRoot = document.getElementById('app')
-ReactDOM.render (<Com name={'erfan'}/>,appRoot)
-
+ReactDOM.render (template,appRoot) 
