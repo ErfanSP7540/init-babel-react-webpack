@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
 
-import './styles/style_sass.sass'
+import './styles/style_less.less'
 
 let template  = <p> This idfdfwerwer jsx from app.js erfan  </p>
 let appRoot   =   document.getElementById('app')
